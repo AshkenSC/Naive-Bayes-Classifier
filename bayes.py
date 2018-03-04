@@ -37,10 +37,8 @@ def trainNB0(trainMatrix, trainCategory):
     numWords = len(trainMatrix[0])
     pAbusive = sum(trainCategory) / float(numTrainDocs)
     # initialize probability
-    p0Num = zeros(numWords);
-    p1Num = zeros(numWords)
-    p0Denom = 0.0;
-    p1Denom = 0.0
+    p0Num = ones(numWords); p1Num = ones(numWords)
+    p0Denom = 2.0; p1Denom = 2.0
     for i in range(numTrainDocs):
         if trainCategory[i] == 1:
             # add up vectors
@@ -49,16 +47,16 @@ def trainNB0(trainMatrix, trainCategory):
         else:
             p0Num += trainMatrix[i]
             p0Denom += sum(trainMatrix[i])
-        p1Vect = p1Num / p1Denom  # change to log()
+        p1Vect = log(p1Num / p1Denom)  # change to log()
         # do division to every element
-        p0Vect = p0Num / p0Denom  # change to log()
+        p0Vect = log(p0Num / p0Denom)  # change to log()
         return p0Vect, p1Vect, pAbusive
 
 
 def classifyNB(vec2Classify, p0Vec, p1Vec, pClass1):
     # multiply elements
     p1 = sum(vec2Classify * p1Vec) + log(pClass1)
-    p0 = sum(vec2Classify * p0Vec) + log(1 - pClass1)
+    p0 = sum(vec2Classify * p0Vec) + log(1.0 - pClass1)
     if p1 > p0:
         return 1
     else:
@@ -72,6 +70,11 @@ def testingNB():
     for postinDoc in list0Posts:
         trainMat.append(setOfWords2Vec(myVocabList, postinDoc))
     p0V, p1V, pAb = trainNB0(array(trainMat), array(listClasses))
+
+    print(pAb)
+    print(p0V)
+    print(p1V)
+
     testEntry = ['love', 'my', 'dalmation']
     thisDoc = array(setOfWords2Vec(myVocabList, testEntry))
     print(testEntry, ' classified as: ', classifyNB(thisDoc, p0V, p1V, pAb))
