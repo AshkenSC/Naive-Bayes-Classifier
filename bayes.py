@@ -1,5 +1,6 @@
 from numpy import *
 
+
 def loadDataSet():
     postingList = [[' my', 'dog', 'has', 'flea', 'problems', 'help', 'please'],
                    ['maybe', 'not', 'take', 'him', 'to', 'dog', 'park', 'stupid'],
@@ -54,8 +55,29 @@ def trainNB0(trainMatrix, trainCategory):
         return p0Vect, p1Vect, pAbusive
 
 
-'''list0Posts, listClasses = loadDataSet()
-myVocabList = createVocabList(list0Posts)
-print(myVocabList)
-print(setOfWords2Vec(myVocabList, list0Posts[3]))
-'''
+def classifyNB(vec2Classify, p0Vec, p1Vec, pClass1):
+    # multiply elements
+    p1 = sum(vec2Classify * p1Vec) + log(pClass1)
+    p0 = sum(vec2Classify * p0Vec) + log(1 - pClass1)
+    if p1 > p0:
+        return 1
+    else:
+        return 0
+
+
+def testingNB():
+    list0Posts, listClasses = loadDataSet()
+    myVocabList = createVocabList(list0Posts)
+    trainMat = []
+    for postinDoc in list0Posts:
+        trainMat.append(setOfWords2Vec(myVocabList, postinDoc))
+    p0V, p1V, pAb = trainNB0(array(trainMat), array(listClasses))
+    testEntry = ['love', 'my', 'dalmation']
+    thisDoc = array(setOfWords2Vec(myVocabList, testEntry))
+    print(testEntry, ' classified as: ', classifyNB(thisDoc, p0V, p1V, pAb))
+    testEntry = ['stupid', 'garbage']
+    thisDoc = array(setOfWords2Vec(myVocabList, testEntry))
+    print(testEntry, ' classified as: ', classifyNB(thisDoc, p0V, p1V, pAb))
+
+
+testingNB()
