@@ -37,9 +37,10 @@ def trainNB0(trainMatrix, trainCategory):
     numWords = len(trainMatrix[0])
     pAbusive = sum(trainCategory) / float(numTrainDocs)
     # initialize probability
-    p0Num = ones(numWords); p1Num = ones(numWords)
-    p0Denom = 2.0; p1Denom = 2.0
+    p0Num = zeros(numWords); p1Num = zeros(numWords)
+    p0Denom = 0.0; p1Denom = 0.0
     for i in range(numTrainDocs):
+        print(trainCategory[i])
         if trainCategory[i] == 1:
             # add up vectors
             p1Num += trainMatrix[i]
@@ -47,10 +48,16 @@ def trainNB0(trainMatrix, trainCategory):
         else:
             p0Num += trainMatrix[i]
             p0Denom += sum(trainMatrix[i])
-        p1Vect = log(p1Num / p1Denom)  # change to log()
-        # do division to every element
-        p0Vect = log(p0Num / p0Denom)  # change to log()
-        return p0Vect, p1Vect, pAbusive
+
+    # !!!Due to extra indent, the following two lines are inside the for cycle,!!!
+    # !!!which leads to wrong result!!!
+
+    #print(p1Num,p0Num)
+    #print(p1Denom,p0Denom)
+    p1Vect = p1Num / p1Denom  # change to log()
+    # do division to every element
+    p0Vect = p0Num / p0Denom  # change to log()
+    return p0Vect, p1Vect, pAbusive
 
 
 def classifyNB(vec2Classify, p0Vec, p1Vec, pClass1):
@@ -64,12 +71,12 @@ def classifyNB(vec2Classify, p0Vec, p1Vec, pClass1):
 
 
 def testingNB():
-    list0Posts, listClasses = loadDataSet()
-    myVocabList = createVocabList(list0Posts)
+    listsOPosts, listClasses = loadDataSet()
+    myVocabList = createVocabList(listsOPosts)
     trainMat = []
-    for postinDoc in list0Posts:
+    for postinDoc in listsOPosts:
         trainMat.append(setOfWords2Vec(myVocabList, postinDoc))
-    p0V, p1V, pAb = trainNB0(array(trainMat), array(listClasses))
+    p0V, p1V, pAb = trainNB0(trainMat, listClasses)
 
     print(pAb)
     print(p0V)
@@ -84,3 +91,5 @@ def testingNB():
 
 
 testingNB()
+
+
