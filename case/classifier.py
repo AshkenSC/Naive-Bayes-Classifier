@@ -82,6 +82,20 @@ def first_classify(my_str):
 # test what's in the data.npy and target.npy
 data = sp.load('data.npy')
 target = sp.load('target.npy')
+'''
 for i in range(20):
     print("length of data.npy is %d, and length of target.npy is %d." % (len(data), len(target)))
     print("Case number %d, “%s” belongs to %d" % (i+1, data[i], target[i]))
+'''
+classes = []
+for i in range(10):
+    classes.append(0)
+for i in range(len(target)):
+    for j in range(10):
+        if(j == target[i]):
+            classes[j] = classes[j]+1
+        else:
+            continue
+for i in range(len(classes)):
+    if(classes[i] != 0):
+        print("class No.%d has %d cases. " % (i+1, classes[i]))
