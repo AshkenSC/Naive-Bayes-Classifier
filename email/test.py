@@ -108,6 +108,6 @@ def spamTest():
     plt.show()
 
 # execute test function
-spamTest()
+# spamTest()
 
 
