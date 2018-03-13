@@ -1,5 +1,5 @@
+import matplotlib.pyplot as plt
 from bayes import *
-
 
 # a convinience function, in order to test classifier
 def testingNB():
@@ -39,12 +39,11 @@ def testingNB():
 
 # a function that finds spams in mailbox
 def spamTest():
-    docList = [];
-    classList = [];
+    docList = []
+    classList = []
     fullText = []
     for i in range(1, 26):
         # import and analyze text file
-        # TODO: set text path
 
         # these are "bad" emails in training set
         wordList = textParse(open('email/spam/%d.txt' % i).read())
@@ -74,7 +73,41 @@ def spamTest():
     errorCount = 0
 
     # classify test set
-    wordVector = setOfWords2Vec(vocabList, docList[docIndex])
-    if classifyNB(array(wordVector), p0V, p1V, pSpam) != classList[docIndex]:
-        errorCount += 1
-    print('the error rate is: ', float(errorCount) / len(testSet))
+    for docIndex in testSet:
+        wordVector = setOfWords2Vec(vocabList, docList[docIndex])
+        if classifyNB(array(wordVector), p0V, p1V, pSpam) != classList[docIndex]:
+            errorCount += 1
+
+    # calculate error rate
+    errorRate = float(errorCount) / len(testSet)
+    print("the error rate is: %f" % (errorRate))
+
+    # draw scattergraph
+    '''
+    parameters of scatter():
+    1) arange(0, len(p0V)): x value range of graph
+        where len(p0V) actually returns the length of vocaulary set
+    2) p0V * (1-pSpam): 
+        p0V is the vetor(array) that stores P(vocabulary | docType0)
+        1-pSpam is P(ham), the general probability of a mail being ham(good mail)
+        
+    '''
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 1, 1)
+    ax.scatter(arange(0, len(p0V)),
+               p0V * (1-pSpam),
+               label='ham',
+               alpha=0.3)
+    ax.legend()
+    bx = fig.add_subplot(1, 1, 1)
+    bx.scatter(arange(0, len(p1V)),
+               p0V * pSpam,
+               label='spam',
+               alpha=0.3)
+    bx.legend()
+    plt.show()
+
+# execute test function
+spamTest()
+
+

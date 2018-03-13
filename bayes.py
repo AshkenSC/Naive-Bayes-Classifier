@@ -41,7 +41,7 @@ def setOfWords2Vec(vocabList, inputSet):
     return returnVec
 
 
-# training function that calculate conditional probabilities p(w|c)
+# training function that calculates conditional probabilities p(w|c)
 # in p(w|c), w stands for "word" and c stands for "classification"
 def trainNB0(trainMatrix, trainCategory):
     numTrainDocs = len(trainMatrix)
