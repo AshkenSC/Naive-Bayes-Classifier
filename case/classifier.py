@@ -16,34 +16,7 @@ os.path.abspath('..')
 
 stopWords = ['的', '等', '了', '并', '得', '等', '而且', '个', '和', '还是', '还有', '有', '以']
 
-def first_classify(my_str):
-    with open("../test/1/test.txt", 'w') as file_project:
-        file_project.write(my_str)
-        file_project.close()
-    test_review = load_files("../test", encoding = "GBK")
-
-    # 读取
-    data = sp.load('data.npy')  # 训练集
-    target = sp.load('target.npy')
-
-    test_data = test_review.data  # 测试集
-    test_target = test_review.target
-
-    count_vec = TfidfVectorizer(binary = False, decode_error = 'ignore', stop_words = list)
-
-    data_train, data_test_zero, target_train, target_test_zero = train_test_split(data, target, test_size = 0)
-    tf_train = count_vec.fit_transform(data_train)  # 训练集tf-idf
-
-    test_train_zero, data_test, target_train_zero, target_test = train_test_split(test_data, test_target,
-                                                                                  test_size = 0.999)
-    tf_test = count_vec.transform(data_test)  # 测试集tf-idf
-
-    clf = LinearSVC(random_state = 0).fit(tf_train, target_train)
-    class_predicted = clf.predict(tf_test)
-
-    return int(class_predicted+1)
-
-# test load data.npy and target.npy
+# load data.npy and target.npy
 data = sp.load('data.npy')
 target = sp.load('target.npy')
 
@@ -80,7 +53,6 @@ trainCountsArray = trainCounts.toarray()
 # get train set TF-IDF 2d array
 tfIdfArray = trainTF.toarray()
 
-
 # build a class to store mapping between text vetor and its category
 class VecCategoty:
     def __init__(self):
@@ -95,41 +67,42 @@ for i in range(len(trainCountsArray)):
     vecTemp.category = target[i]
     vecMap[vecTemp.category].append(vecTemp)
 
-# calculate word count sum of every category
-vecSum = [[0]*len(trainCountsArray[0]) for i in range(len(vecMap))]     # initialize sum array
+# calculate text vector sum of every category
+vecSum = [[1]*len(trainCountsArray[0]) for i in range(len(vecMap))]     # initialize sum array
 for i in range(len(vecMap)):
     for j in range(len(vecMap[i])):
         vecSum[i] += vecMap[i][j].textVec
 
-# calculate category possibility according to vecSum
-categoryWordCount = np.zeros(len(vecSum))   # word number in every category
+# calculate category condition possibility according to vecSum[i]/categoryWordCount[i]
+categoryWordCount = np.ones(len(vecSum))   # categoryWordCount[i]: word number category i
 for i in range(len(vecSum)):
     for j in range(len(vecSum[i])):
         categoryWordCount[i] += vecSum[i][j]
 
-conditionPossibility = np.zeros(len(vecSum))    # condition possibility of every text vector
+    # condition possibility of every category
+conditionPossibility = [[0]*len(trainCountsArray[0]) for i in range(len(vecSum))]
 for i in range(6):
     for j in range(len(vecSum[i])):
-        conditionPossibility[i] = np.log(vecSum[i][j] / categoryWordCount[i])     # use log to smooth
+        conditionPossibility[i][j] = np.log(vecSum[i][j] / categoryWordCount[i])     # use log to smooth
 
-categoryPossibility = np.zeros(len(vecSum))     # overall possibility of every category
-print(categoryPossibility)
+    # overall possibility of every category
+categoryPossibility = np.zeros(len(vecSum))
 for i in range(len(vecSum)):
-    for j in range(len(vecSum[i])):
+    for j in range(len(vecMap[i])):
         categoryPossibility[i] += 1
 categoryPossibility /= len(trainCountsArray)
+
 
 # draw graph for different categories
 fig = plt.figure()
 for i in range(len(vecSum)):
     ax = fig.add_subplot(1, 1, 1)
-    ax.scatter(np.arange(0, len(conditionPossibility)),
-               conditionPossibility[i]*categoryPossibility[i],
+    ax.scatter(np.arange(0, len(conditionPossibility[0])),
+               np.array(conditionPossibility[i])*categoryPossibility[i],
                label=i,
                alpha=0.3)
     ax.legend()
 plt.show()
-
 
 
 
