@@ -48,9 +48,9 @@ def trainNB0(trainMatrix, trainCategory):
     numWords = len(trainMatrix[0])
     pAbusive = sum(trainCategory) / float(numTrainDocs)
     # initialize probability
-    p0Num = ones(numWords);
+    p0Num = ones(numWords)
     p1Num = ones(numWords)
-    p0Denom = 2.0;
+    p0Denom = 2.0
     p1Denom = 2.0
     for i in range(numTrainDocs):
         if trainCategory[i] == 1:

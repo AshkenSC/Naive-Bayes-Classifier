@@ -95,21 +95,36 @@ for i in range(len(trainCountsArray)):
     vecTemp.category = target[i]
     vecMap[vecTemp.category].append(vecTemp)
 
-# calculte word count sum of every category
+# calculate word count sum of every category
 vecSum = [[0]*len(trainCountsArray[0]) for i in range(len(vecMap))]     # initialize sum array
-
-# convert ca
-
 for i in range(len(vecMap)):
     for j in range(len(vecMap[i])):
         vecSum[i] += vecMap[i][j].textVec
+
+# calculate category possibility according to vecSum
+categoryWordCount = np.zeros(len(vecSum))   # word number in every category
+for i in range(len(vecSum)):
+    for j in range(len(vecSum[i])):
+        categoryWordCount[i] += vecSum[i][j]
+
+conditionPossibility = np.zeros(len(vecSum))    # condition possibility of every text vector
+for i in range(6):
+    for j in range(len(vecSum[i])):
+        conditionPossibility[i] = np.log(vecSum[i][j] / categoryWordCount[i])     # use log to smooth
+
+categoryPossibility = np.zeros(len(vecSum))     # overall possibility of every category
+print(categoryPossibility)
+for i in range(len(vecSum)):
+    for j in range(len(vecSum[i])):
+        categoryPossibility[i] += 1
+categoryPossibility /= len(trainCountsArray)
 
 # draw graph for different categories
 fig = plt.figure()
 for i in range(len(vecSum)):
     ax = fig.add_subplot(1, 1, 1)
-    ax.scatter(np.arange(0, len(trainCountsArray[0])),
-               vecSum[i],
+    ax.scatter(np.arange(0, len(conditionPossibility)),
+               conditionPossibility[i]*categoryPossibility[i],
                label=i,
                alpha=0.3)
     ax.legend()
