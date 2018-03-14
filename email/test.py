@@ -95,19 +95,20 @@ def spamTest():
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
     ax.scatter(arange(0, len(p0V)),
-               p0V * (1-pSpam),
+               p0V*(1-pSpam),
                label='ham',
                alpha=0.3)
     ax.legend()
     bx = fig.add_subplot(1, 1, 1)
     bx.scatter(arange(0, len(p1V)),
-               p0V * pSpam,
+               p1V*pSpam,
                label='spam',
                alpha=0.3)
     bx.legend()
+
     plt.show()
 
 # execute test function
-# spamTest()
+spamTest()
 
 
