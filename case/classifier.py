@@ -4,6 +4,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from  sklearn.svm  import  LinearSVC
+from sklearn.manifold import TSNE
+from sklearn.decomposition import PCA
 import scipy as sp
 import numpy as np
 import matplotlib.pyplot as plt
@@ -94,16 +96,28 @@ categoryPossibility /= len(trainCountsArray)
 
 
 # draw graph for different categories
-fig = plt.figure()
-for i in range(len(vecSum)):
-    ax = fig.add_subplot(1, 1, 1)
-    ax.scatter(np.arange(0, len(conditionPossibility[0])),
-               np.array(conditionPossibility[i])*categoryPossibility[i],
-               label=i,
-               alpha=0.3)
-    ax.legend()
-plt.show()
+def DrawCtgDistribution():
+    fig = plt.figure()
+    for i in range(len(vecSum)):
+        ax = fig.add_subplot(1, 1, 1)
+        ax.scatter(np.arange(0, len(conditionPossibility[0])),
+                   np.array(conditionPossibility[i])*categoryPossibility[i],
+                   label=i,
+                   alpha=0.3)
+        ax.legend()
+    plt.show()
 
+# draw t-SNE graph
+# TODO: convert sparse matrix to dense matrix
+def DrawTSNE():
+    X_tsne = TSNE(learning_rate=100).fit_transform(trainCounts)
+    X_pca = PCA().fit_transform(trainCounts)
 
+    plt.figure(figsize=(10, 5))
+    plt.subplot(121)
+    plt.scatter(X_tsne[:, 0], X_tsne[:, 1], c=iris.target)
+    plt.subplot(122)
+    plt.scatter(X_pca[:, 0], X_pca[:, 1], c=iris.target)
+    plt.show()
 
-
+DrawTSNE()
