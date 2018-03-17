@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 from bayes import *
+from sklearn.manifold import TSNE
+from sklearn.decomposition import PCA
 
 # a convinience function, in order to test classifier
 def testingNB():
@@ -107,6 +109,19 @@ def spamTest():
     bx.legend()
 
     plt.show()
+
+    # drawTSNE
+    X_tsne = TSNE(learning_rate=100).fit_transform(trainMat)
+    X_pca = PCA().fit_transform(trainMat)
+
+    plt.figure(figsize=(10, 5))
+    plt.subplot(121)
+    plt.scatter(X_tsne[:, 0], X_tsne[:, 1], c=trainClasses)
+    plt.subplot(122)
+    plt.scatter(X_pca[:, 0], X_pca[:, 1], c=trainClasses)
+    plt.show()
+
+
 
 # execute test function
 spamTest()
