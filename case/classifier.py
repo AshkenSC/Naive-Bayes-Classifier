@@ -27,7 +27,7 @@ target = sp.load('target.npy')
 from sklearn.feature_extraction.text import CountVectorizer
 
 # TODO: Modify max_df and min_df, observe variation of precision, recall and f1-score along with the change, and make a graph
-countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore', max_df=0.5, min_df=0.05)
+countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore', max_df=0.5, min_df=0.0005)
 trainCounts = countVector.fit_transform(data)
 # shape output format: (sample number, dict size)
 print("words freq shape:", trainCounts.shape)
@@ -47,18 +47,23 @@ if (isTF_IDF == 0):
 else:
     # 2) use TF-IDF vetor
     trainVector = trainTF
+
+# K-fold validation to split train set and test set
+# TODO: Update to K-fold cross validation
+# TODO: 只划分了数据集，没有划分对应分类结果集
+kf = KFold(n_splits=10, shuffle=False)
+# kf.split() returns index values of train and test after split.
+kf.split(trainVector)
+
 # TODO: Set different alpha(for Laplace/Lidstone smoothing)
-naiveBayesClassifier = MultinomialNB(alpha=0.2).fit(trainVector, target)
+naiveBayesClassifier = MultinomialNB(alpha=0.2).fit(trainSet, target)
 
 # make prediction
-# TODO: Update to k-fold cross validation
-predicted = naiveBayesClassifier.predict(tfTransformer.transform(countVector.transform(data)))
+# the parameter of predict(data) is the test dataset
+# (obseleted) predicted = naiveBayesClassifier.predict(tfTransformer.transform(countVector.transform(data)))
+# TODO: predicted = naiveBayesClassifier.predict(testSet)
 
-# K-fold validate and print test results
-# TODO: Update to K-fold validation. See http://blog.csdn.net/cherdw/article/details/54986863 for reference
-kf = KFold(n_splits=10, shuffle=True)
-kf.split(trainVector, target)
-
+# print test results
 from sklearn import metrics
 print(metrics.classification_report(target, predicted))
 
