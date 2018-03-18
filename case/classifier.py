@@ -12,103 +12,111 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-# toggle array display integrity
+# Toggle array display integrity
 # np.set_printoptions(threshold=np.inf)
 
 os.path.abspath('..')
 
 stopWords = ['的', '等', '了', '并', '得', '等', '而且', '个', '和', '还是', '还有', '有', '以']
 
-# load data.npy and target.npy
+# Load data.npy and target.npy
 data = sp.load('data.npy')
 target = sp.load('target.npy')
 
-# step 1 of vectorizing method: count vectorizer (bag of words)
+# Step 1 of vectorizing method: count vectorizer (bag of words)
 from sklearn.feature_extraction.text import CountVectorizer
 
 # TODO: Modify max_df and min_df, observe variation of precision, recall and f1-score along with the change, and make a graph
 countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore', max_df=0.5, min_df=0.0005)
 trainCounts = countVector.fit_transform(data)
-# shape output format: (sample number, dict size)
+# Shape output format: (sample number, dict size)
 print("words freq shape:", trainCounts.shape)
 
-# step 2 of vectorize method: TF-IDF vectorizer
+# Step 2 of vectorize method: TF-IDF vectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 tfTransformer = TfidfTransformer(use_idf=True).fit(trainCounts)
 trainTF = tfTransformer.transform(trainCounts)
 print("TF-IDF shape:", trainTF.shape)
 
-# build naive Bayes classifier
+# Build naive Bayes classifier
 from sklearn.naive_bayes import MultinomialNB
 isTF_IDF = 1     # a flag to select character
 if (isTF_IDF == 0):
-    # 1) use bag of words vector
+    # 1) Use bag of words vector
     trainVector = trainCounts
 else:
-    # 2) use TF-IDF vetor
+    # 2) Use TF-IDF vetor
     trainVector = trainTF
 
 # K-fold validation to split train set and test set
-# TODO: Update to K-fold cross validation
-# TODO: 只划分了数据集，没有划分对应分类结果集
 kf = KFold(n_splits=10, shuffle=False)
 # kf.split() returns index values of train and test after split.
-kf.split(trainVector)
+kf.get_n_splits(trainVector)
+print("Validation method: " , kf)
 
-# TODO: Set different alpha(for Laplace/Lidstone smoothing)
-naiveBayesClassifier = MultinomialNB(alpha=0.2).fit(trainSet, target)
+# Repeat test for K times, where K is now 10
+testCount = 1;  # Use this to count test when output result
+for trainIndex,testIndex in kf.split(trainVector):
 
-# make prediction
-# the parameter of predict(data) is the test dataset
-# (obseleted) predicted = naiveBayesClassifier.predict(tfTransformer.transform(countVector.transform(data)))
-# TODO: predicted = naiveBayesClassifier.predict(testSet)
+    # Data set and target set are split TOGETHER using trainIndex and testIndex as their COMMON index number
+    splitTrainData, splitTestData = trainVector[trainIndex], trainVector[testIndex]
+    splitTrainTarget, splitTestTarget = target[trainIndex], target[testIndex]
 
-# print test results
-from sklearn import metrics
-print(metrics.classification_report(target, predicted))
+    # TODO: Set different alpha(for Laplace/Lidstone smoothing)
+    naiveBayesClassifier = MultinomialNB(alpha=0.2).fit(splitTrainData, splitTrainTarget)
+
+    # Make prediction. The parameter of predict(data) is the test dataset
+    # (obseleted) predicted = naiveBayesClassifier.predict(tfTransformer.transform(countVector.transform(data)))
+    predicted = naiveBayesClassifier.predict(splitTestData)
+
+    # Print test results
+    from sklearn import metrics
+    print("***** Test number", testCount, "*****")
+    testCount += 1
+    print(metrics.classification_report(splitTestTarget, predicted))
 
 # --------------
 # Reinvent NB classifier wheel for probability distribution graph
 def NBwheel():
-    # get train set count vector 2d array
+    # Get train set count vector 2d array
     trainCountsArray = trainCounts.toarray()
 
-    # get train set TF-IDF 2d array
+    # Get train set TF-IDF 2d array
     tfIdfArray = trainTF.toarray()
 
-    # build a class to store mapping between text vetor and its category
+    # Build a class to store mapping between text vetor and its category
     class VecCategoty:
         def __init__(self):
             textVec = []
             category = 0
     vecMap = [[],[],[],[],[],[]]
 
-    # store the text-category mapping into an array, vecMap[i][j] means the text is No.j in category No.i
+    # Store the text-category mapping into an array, vecMap[i][j] means the text is No.j in category No.i
     for i in range(len(trainCountsArray)):
         vecTemp = VecCategoty()
         vecTemp.textVec = trainCountsArray[i]
         vecTemp.category = target[i]
         vecMap[vecTemp.category].append(vecTemp)
 
-    # calculate text vector sum of every category
+    # Calculate text vector sum of every category
     vecSum = [[1]*len(trainCountsArray[0]) for i in range(len(vecMap))]     # initialize sum array
     for i in range(len(vecMap)):
         for j in range(len(vecMap[i])):
             vecSum[i] += vecMap[i][j].textVec
 
-    # calculate category condition possibility according to vecSum[i]/categoryWordCount[i]
+    # Calculate category condition possibility according to vecSum[i]/categoryWordCount[i]
     categoryWordCount = np.ones(len(vecSum))   # categoryWordCount[i]: word number category i
     for i in range(len(vecSum)):
         for j in range(len(vecSum[i])):
             categoryWordCount[i] += vecSum[i][j]
 
-        # condition possibility of every category
+        # Condition possibility of every category
     conditionPossibility = [[0]*len(trainCountsArray[0]) for i in range(len(vecSum))]
     for i in range(6):
         for j in range(len(vecSum[i])):
             conditionPossibility[i][j] = np.log(vecSum[i][j] / categoryWordCount[i])     # use log to smooth
 
-        # overall possibility of every category
+        # Overall possibility of every category
     categoryPossibility = np.zeros(len(vecSum))
     for i in range(len(vecSum)):
         for j in range(len(vecMap[i])):
@@ -116,7 +124,7 @@ def NBwheel():
     categoryPossibility /= len(trainCountsArray)
 
 # --------------
-# draw graph for different categories
+# Draw graph for different categories
 # Before using this function, call NBwheel() first
 def DrawCtgDistribution():
     fig = plt.figure()
@@ -130,7 +138,7 @@ def DrawCtgDistribution():
     plt.show()
 
 # --------------
-# draw t-SNE graph
+# Draw t-SNE graph
 # Before using this function, call NBwheel() first
 # TODO: Convert sparse matrix to dense matrix
 def DrawTSNE():
