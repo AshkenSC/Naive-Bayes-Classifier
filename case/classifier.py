@@ -27,7 +27,7 @@ target = sp.load('target.npy')
 from sklearn.feature_extraction.text import CountVectorizer
 
 # TODO: Modify max_df and min_df, observe variation of precision, recall and f1-score along with the change, and make a graph
-countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore', max_df=0.5, min_df=0.0005)
+countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore')
 trainCounts = countVector.fit_transform(data)
 # Shape output format: (sample number, dict size)
 print("words freq shape:", trainCounts.shape)
@@ -40,6 +40,9 @@ print("TF-IDF shape:", trainTF.shape)
 
 # Build naive Bayes classifier
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import BernoulliNB
+from sklearn.naive_bayes import GaussianNB
+
 isTF_IDF = 1     # a flag to select character
 if (isTF_IDF == 0):
     # 1) Use bag of words vector
@@ -55,6 +58,7 @@ kf.get_n_splits(trainVector)
 print("Validation method: " , kf)
 
 # Repeat test for K times, where K is now 10
+precision, recall, f1Score, support = [], [], [], []
 testCount = 1;  # Use this to count test when output result
 for trainIndex,testIndex in kf.split(trainVector):
 
@@ -62,18 +66,32 @@ for trainIndex,testIndex in kf.split(trainVector):
     splitTrainData, splitTestData = trainVector[trainIndex], trainVector[testIndex]
     splitTrainTarget, splitTestTarget = target[trainIndex], target[testIndex]
 
+    # TODO: Set different Classifier model(0.Bernoulli, 1.Multinomial)
     # TODO: Set different alpha(for Laplace/Lidstone smoothing)
-    naiveBayesClassifier = MultinomialNB(alpha=0.2).fit(splitTrainData, splitTrainTarget)
+    classifierType = 0
+    if classifierType == 0:
+        naiveBayesClassifier = BernoulliNB(alpha=1.0).fit(splitTrainData, splitTrainTarget)
+    elif classifierType == 1:
+        naiveBayesClassifier = MultinomialNB(alpha=1.0).fit(splitTrainData, splitTrainTarget)
 
     # Make prediction. The parameter of predict(data) is the test dataset
-    # (obseleted) predicted = naiveBayesClassifier.predict(tfTransformer.transform(countVector.transform(data)))
     predicted = naiveBayesClassifier.predict(splitTestData)
 
-    # Print test results
+    # Get test result statistics
     from sklearn import metrics
-    print("***** Test number", testCount, "*****")
+    # Store statistics into lists respectively
+    precision.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[0])
+    recall.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[1])
+    f1Score.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[2])
+    support.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[3])
+
+    # Print report
+    '''
+    print("***** Test No.", testCount, "*****")
     testCount += 1
-    print(metrics.classification_report(splitTestTarget, predicted))
+    report = metrics.classification_report(splitTestTarget, predicted)
+    print(report)
+    '''
 
 # --------------
 # Reinvent NB classifier wheel for probability distribution graph
@@ -152,6 +170,28 @@ def DrawTSNE():
     plt.scatter(X_pca[:, 0], X_pca[:, 1], c=target)
     plt.show()
 
+# --------------
+# Draw straight line charts (for Bernoulli VS Multinomial)
+def DrawLineChart(dataList):
+    fig = plt.figure(dpi=128, figsize=(10, 6))
+
+    # Draw plot
+    plt.plot(dataList, marker='D', alpha=0.9)
+
+    # Set format
+    plt.ylim(0.75, 1.04)
+    plt.legend(['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6'], loc='upper left')
+    plt.title('F1-score of Different Text Types in Bernoulli Model')
+    #plt.title('F1-score of Different Text Types in Multinomial Model')
+
+    plt.show()
+
+# --------------
+# TODO: Draw smooth line charts (for alpha and max_df&min_df)
+
+
+print(f1Score)
+DrawLineChart(f1Score)
 
 
 
