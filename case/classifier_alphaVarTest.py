@@ -55,20 +55,20 @@ kf.get_n_splits(trainVector)
 print("Validation method: " , kf)
 
 # Variables for alpha test
-f1Variation = []        # A 10*6 array that stores f1-score variation of 6 categories
+f1Variation = []        # A N*6 array that stores f1-score variation of 6 categories(N is how many times alpha changes)
 f1SubList = []          # A 10*6 TEMP array that stores f1-score of 10-fold tests under certain alpha value
 graph_xAxis = []        # A list for x-axis ticker of the graph
-alphaScale = 50         # alphaValue stores the changing alpha value which is for smoothing
+alphaScale = 50         # 1/alphaScale is delta of the changing alpha
 
-testCount = 1       # Use this to count test when output result
+# In every outer loop alphaScale varies
 for i in range(alphaScale):
-    for trainIndex,testIndex in kf.split(trainVector):  # Repeat test for K times, where K is now 10
+    # Repeat for K times where K is now 10, do K-fold cross validation
+    for trainIndex,testIndex in kf.split(trainVector):
 
         # Data set and target set are split TOGETHER using trainIndex and testIndex as their COMMON index number
         splitTrainData, splitTestData = trainVector[trainIndex], trainVector[testIndex]
         splitTrainTarget, splitTestTarget = target[trainIndex], target[testIndex]
 
-        # TODO: Set different Classifier model(0.Bernoulli, 1.Multinomial)
         # TODO: Set different alpha(for Laplace/Lidstone smoothing)
         classifierType = 1
         if classifierType == 0:
@@ -76,19 +76,10 @@ for i in range(alphaScale):
         elif classifierType == 1:
             naiveBayesClassifier = MultinomialNB(alpha=1.0/alphaScale * i).fit(splitTrainData, splitTrainTarget)
 
-        # Make prediction. The parameter of predict(data) is the test dataset
-        predicted = naiveBayesClassifier.predict(splitTestData)
-
         # Get test result statistics
         from sklearn import metrics
         # Store statistics into lists respectively
         f1SubList.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[2])
-
-        # Print report
-        print("***** Test No.", testCount, "alpha =", 1.0/alphaScale * i, "*****")
-        testCount += 1
-        report = metrics.classification_report(splitTestTarget, predicted)
-        #print(report)
 
     # Calculate arithmetic average of F1-score for every category under this ALPHA value
     f1Variation.append(np.sum(f1SubList, axis=0) / 10)
@@ -97,12 +88,13 @@ for i in range(alphaScale):
     # Update x-axis ticker list
     graph_xAxis.append(1.0 / alphaScale * i)
 
+# test print
 print('lenf1var', len(f1Variation))
 print('lenf1var0', len(f1Variation[0]))
 print(f1Variation)
 
 # --------------
-# Draw line charts for alpha variation
+# Draw line chart for alpha variation
 def DrawAlphaVariation(dataList):
     fig = plt.figure(dpi=128, figsize=(10, 6))
 
