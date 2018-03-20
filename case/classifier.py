@@ -67,7 +67,6 @@ for trainIndex,testIndex in kf.split(trainVector):
     splitTrainTarget, splitTestTarget = target[trainIndex], target[testIndex]
 
     # TODO: Set different Classifier model(0.Bernoulli, 1.Multinomial)
-    # TODO: Set different alpha(for Laplace/Lidstone smoothing)
     classifierType = 0
     if classifierType == 0:
         naiveBayesClassifier = BernoulliNB(alpha=1.0).fit(splitTrainData, splitTrainTarget)
@@ -171,8 +170,8 @@ def DrawTSNE():
     plt.show()
 
 # --------------
-# Draw straight line charts (for Bernoulli VS Multinomial)
-def DrawLineChart(dataList):
+# Draw line charts for Bernoulli VS Multinomial for comparison
+def DrawModelComparison(dataList):
     fig = plt.figure(dpi=128, figsize=(10, 6))
 
     # Draw plot
@@ -186,12 +185,7 @@ def DrawLineChart(dataList):
 
     plt.show()
 
-# --------------
-# TODO: Draw smooth line charts (for alpha and max_df&min_df)
 
-
+# Execute draw function
 print(f1Score)
-DrawLineChart(f1Score)
-
-
-
+DrawModelComparison(f1Score)

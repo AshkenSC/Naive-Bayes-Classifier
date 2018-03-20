@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bc6fe9c-6a1a-4608-8def-30714ecdcc6c" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/case/classifier_alphaVarTest.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/case/classifier.py" afterPath="$PROJECT_DIR$/case/classifier.py" />
     </list>
@@ -17,7 +19,7 @@
       <file leaf-file-name="classification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PythonClassification/文本分类/src/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-435">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -27,7 +29,7 @@
       <file leaf-file-name="bayes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/email/bayes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1624">
+            <state relative-caret-position="1595">
               <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -39,7 +41,7 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/email/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
+            <state relative-caret-position="3248">
               <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -51,14 +53,24 @@
       <file leaf-file-name="classifier.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/case/classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-920">
-              <caret line="76" column="39" lean-forward="false" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
+            <state relative-caret-position="-1750">
+              <caret line="28" column="2" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
               <folding>
-                <element signature="e#17#56#0" expanded="true" />
-                <element signature="e#3809#5630#0" expanded="false" />
-                <element signature="e#5829#6076#0" expanded="false" />
-                <element signature="e#6246#6566#0" expanded="false" />
-                <element signature="e#6677#7077#0" expanded="false" />
+                <element signature="e#1679#1737#0" expanded="false" />
+                <element signature="e#1748#1795#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classifier_alphaVarTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/case/classifier_alphaVarTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-377">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding>
+                <element signature="e#2250#3949#0" expanded="false" />
+                <element signature="e#4141#4613#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,8 +79,8 @@
       <file leaf-file-name="classification.py" pinned="false" current-in-tab="false">
         <entry file="file://D:/Programs/Anaconda/Lib/site-packages/sklearn/metrics/classification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="1458" column="54" lean-forward="false" selection-start-line="1458" selection-start-column="29" selection-end-line="1458" selection-end-column="54" />
+            <state relative-caret-position="154">
+              <caret line="1362" column="4" lean-forward="false" selection-start-line="1362" selection-start-column="4" selection-end-line="1362" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -77,7 +89,7 @@
       <file leaf-file-name="function.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../分类/全民社管情报分类系统/src/function.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-270">
+            <state relative-caret-position="464">
               <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding />
             </state>
@@ -108,11 +120,20 @@
       <find>setOf</find>
       <find>bagOfwords2Vec</find>
       <find>trainCountsArray</find>
+      <find>precision</find>
+      <find>DrawLineChart</find>
+      <find>alphaVar</find>
+      <find>alphaStep</find>
+      <find>f1Average</find>
+      <find>alphavalue</find>
     </findStrings>
     <replaceStrings>
       <replace>bagOf</replace>
       <replace>setOfWords2Vec</replace>
       <replace>tfIdfArray</replace>
+      <replace>DrawModelComparison</replace>
+      <replace>alphaValue</replace>
+      <replace>f1Variation</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -121,6 +142,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/email/test.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/case/classifier_alphaVarTest.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/email/bayes.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/case/classifier.py" root0="SKIP_INSPECTION" />
   </component>
@@ -143,13 +165,14 @@
         <option value="$PROJECT_DIR$/case/bayes.py" />
         <option value="$PROJECT_DIR$/email/bayes.py" />
         <option value="$PROJECT_DIR$/email/test.py" />
+        <option value="$PROJECT_DIR$/case/classifier_alphaVarTest.py" />
         <option value="$PROJECT_DIR$/case/classifier.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="726" />
-    <option name="width" value="1204" />
+    <option name="x" value="950" />
+    <option name="width" value="980" />
     <option name="height" value="1030" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -169,7 +192,7 @@
     </entry>
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -182,17 +205,16 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../分类/全民社管情报分类系统/src/function.py" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Project\Python\text_classifier\case" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Project\Python\text_classifier\email" />
       <recent name="D:\Project\Python\helloPy\dice" />
@@ -248,24 +270,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="btc_close_2017" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/btc" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="helloPy" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/btc/btc_close_2017.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="classifier" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -279,6 +283,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="text_classifier" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/case/classifier.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="classifier_alphaVarTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="text_classifier" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/case/classifier_alphaVarTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -303,19 +325,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.btc_close_2017" />
-      <item index="1" class="java.lang.String" itemvalue="Python.bayes" />
-      <item index="2" class="java.lang.String" itemvalue="Python.bayes (1)" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.classifier" />
+      <item index="0" class="java.lang.String" itemvalue="Python.bayes" />
+      <item index="1" class="java.lang.String" itemvalue="Python.bayes (1)" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test" />
+      <item index="3" class="java.lang.String" itemvalue="Python.classifier" />
+      <item index="4" class="java.lang.String" itemvalue="Python.classifier_alphaVarTest" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.classifier" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bayes (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.bayes" />
-        <item index="4" class="java.lang.String" itemvalue="Python.btc_close_2017" />
+        <item index="1" class="java.lang.String" itemvalue="Python.classifier_alphaVarTest" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.bayes (1)" />
+        <item index="4" class="java.lang.String" itemvalue="Python.bayes" />
       </list>
     </recent_temporary>
   </component>
@@ -346,13 +368,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22673032" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22553699" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244552" sideWeight="0.5247191" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32338902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23269689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27207637" sideWeight="0.4752809" order="2" side_tool="false" content_ui="tabs" x="405" y="354" width="986" height="288" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3162291" sideWeight="0.4752809" order="2" side_tool="false" content_ui="tabs" x="405" y="354" width="986" height="288" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21002387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22786178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -402,7 +423,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="14" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -443,20 +464,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/email/bayes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/email/bayes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/temperature/highs_lows.py" />
     <entry file="file://$PROJECT_DIR$/btc/btc_close_2017.py" />
     <entry file="file://$PROJECT_DIR$/pymc/main.py" />
@@ -531,7 +538,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../PythonClassification/文本分类/src/classification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -539,7 +546,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/email/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
+        <state relative-caret-position="3248">
           <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
@@ -549,7 +556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/email/bayes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1624">
+        <state relative-caret-position="1595">
           <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -565,32 +572,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Programs/Anaconda/Lib/site-packages/sklearn/metrics/classification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="1458" column="54" lean-forward="false" selection-start-line="1458" selection-start-column="29" selection-end-line="1458" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../分类/全民社管情报分类系统/src/function.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
+        <state relative-caret-position="464">
           <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Programs/Anaconda/Lib/site-packages/sklearn/metrics/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Programs/Anaconda/Lib/site-packages/sklearn/metrics/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="1362" column="4" lean-forward="false" selection-start-line="1362" selection-start-column="4" selection-end-line="1362" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/classifier_alphaVarTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-377">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#2250#3949#0" expanded="false" />
+            <element signature="e#4141#4613#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/case/classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-920">
-          <caret line="76" column="39" lean-forward="false" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
+        <state relative-caret-position="-1750">
+          <caret line="28" column="2" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
           <folding>
-            <element signature="e#17#56#0" expanded="true" />
-            <element signature="e#3809#5630#0" expanded="false" />
-            <element signature="e#5829#6076#0" expanded="false" />
-            <element signature="e#6246#6566#0" expanded="false" />
-            <element signature="e#6677#7077#0" expanded="false" />
+            <element signature="e#1679#1737#0" expanded="false" />
+            <element signature="e#1748#1795#0" expanded="false" />
           </folding>
         </state>
       </provider>
