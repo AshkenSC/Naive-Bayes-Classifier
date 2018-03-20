@@ -76,6 +76,9 @@ for i in range(alphaScale):
         elif classifierType == 1:
             naiveBayesClassifier = MultinomialNB(alpha=1.0/alphaScale * i).fit(splitTrainData, splitTrainTarget)
 
+        # Make prediction. The parameter of predict(data) is the test dataset
+        predicted = naiveBayesClassifier.predict(splitTestData)
+
         # Get test result statistics
         from sklearn import metrics
         # Store statistics into lists respectively
@@ -102,10 +105,10 @@ def DrawAlphaVariation(dataList):
     plt.plot(graph_xAxis, dataList, alpha=0.9)
 
     # Set other format
-    plt.grid()
+    plt.grid(alpha=0.3)
     plt.locator_params('x', nbins=20)
     plt.locator_params('y', nbins=20)
-    plt.ylim(0.75, 1.0)
+    #plt.ylim(0.75, 1.0)
     plt.legend(['Type 1', 'Type 2', 'Type 3', 'Type 4', 'Type 5', 'Type 6'], loc='lower right')
     plt.xlabel('alpha')
     plt.ylabel('F1-score')
