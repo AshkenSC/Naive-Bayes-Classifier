@@ -27,7 +27,7 @@ target = sp.load('target.npy')
 from sklearn.feature_extraction.text import CountVectorizer
 
 # TODO: Modify max_df and min_df, observe variation of precision, recall and f1-score along with the change, and make a graph
-countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore', max_df=0.5, min_df=10)
+countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore', max_df=0.5, min_df=8)
 trainCounts = countVector.fit_transform(data)
 # Shape output format: (sample number, dict size)
 print("words freq shape:", trainCounts.shape)
@@ -43,7 +43,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.naive_bayes import GaussianNB
 
-isTF_IDF = 1     # a flag to select character
+isTF_IDF = 0     # a flag to select character
 if (isTF_IDF == 0):
     # 1) Use bag of words vector
     trainVector = trainCounts
@@ -58,7 +58,7 @@ kf.get_n_splits(trainVector)
 print("Validation method: " , kf)
 
 # Repeat test for K times, where K is now 10
-precision, recall, f1Score, support = [], [], [], []
+f1Score = []
 testCount = 1;  # Use this to count test when output result
 for trainIndex,testIndex in kf.split(trainVector):
 
@@ -69,9 +69,9 @@ for trainIndex,testIndex in kf.split(trainVector):
     # TODO: Set different Classifier model(0.Bernoulli, 1.Multinomial)
     classifierType = 0
     if classifierType == 0:
-        naiveBayesClassifier = BernoulliNB(alpha=1.0).fit(splitTrainData, splitTrainTarget)
+        naiveBayesClassifier = BernoulliNB(alpha=0.5).fit(splitTrainData, splitTrainTarget)
     elif classifierType == 1:
-        naiveBayesClassifier = MultinomialNB(alpha=1.0).fit(splitTrainData, splitTrainTarget)
+        naiveBayesClassifier = MultinomialNB(alpha=0.5).fit(splitTrainData, splitTrainTarget)
 
     # Make prediction. The parameter of predict(data) is the test dataset
     predicted = naiveBayesClassifier.predict(splitTestData)
@@ -79,13 +79,9 @@ for trainIndex,testIndex in kf.split(trainVector):
     # Get test result statistics
     from sklearn import metrics
     # Store statistics into lists respectively
-    precision.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[0])
-    recall.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[1])
     f1Score.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[2])
-    support.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[3])
 
     # Print report
-
     print("***** Test No.", testCount, "*****")
     testCount += 1
     report = metrics.classification_report(splitTestTarget, predicted)
@@ -105,7 +101,7 @@ def DrawModelComparison(dataList):
         plt.title('F1-score of Different Text Types in Bernoulli Model')
     else:
         plt.title('F1-score of Different Text Types in Multinomial Model')
-    plt.ylim(0.3, 1.04)
+    plt.ylim(0.91, 1.04)
     plt.grid(alpha=0.5)
     plt.xlabel('test set serial number')
     plt.ylabel('F1-score')

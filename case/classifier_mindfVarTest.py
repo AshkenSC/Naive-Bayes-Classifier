@@ -32,7 +32,7 @@ f1SubList = []          # A 10*6 TEMP array that stores f1-score of 10-fold test
 graph_xAxis = []        # A list for x-axis ticker of the graph
 max_min_df = 100          # max value of min_df
 
-for i in range(max_min_df):
+for i in range(1, max_min_df):
 
     # TODO: Modify max_df and min_df, observe variation of precision, recall and f1-score along with the change, and make a graph
     countVector = CountVectorizer(stop_words=stopWords, decode_error='ignore', max_df=0.9, min_df=i)
@@ -86,7 +86,7 @@ for i in range(max_min_df):
         # Get test result statistics
         from sklearn import metrics
         # Store F1-score / text dimension into the sublist
-        f1SubList.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[2] / trainVector.shape[0])
+        f1SubList.append(metrics.precision_recall_fscore_support(splitTestTarget, predicted)[2] / np.log(trainVector.shape[0]))
 
         # Print report
         #print("***** Test No.", testCount, "*****")

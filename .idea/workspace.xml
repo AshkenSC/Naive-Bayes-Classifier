@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bc6fe9c-6a1a-4608-8def-30714ecdcc6c" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/case/classifier_probScatter.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/case/classifier_confuMat.py" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/case/classifier.py" afterPath="$PROJECT_DIR$/case/classifier_modelComp.py" />
-      <change beforePath="$PROJECT_DIR$/case/classifier_alphaVarTest.py" afterPath="$PROJECT_DIR$/case/classifier_alphaVarTest.py" />
       <change beforePath="$PROJECT_DIR$/case/classifier_mindfVarTest.py" afterPath="$PROJECT_DIR$/case/classifier_mindfVarTest.py" />
+      <change beforePath="$PROJECT_DIR$/case/classifier_modelComp.py" afterPath="$PROJECT_DIR$/case/classifier_modelComp.py" />
+      <change beforePath="$PROJECT_DIR$/case/classifier_probScatter.py" afterPath="$PROJECT_DIR$/case/classifier_probScatter.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,11 +55,11 @@
       <file leaf-file-name="classifier_modelComp.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/case/classifier_modelComp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1153">
-              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="-234">
+              <caret line="79" column="31" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="31" />
               <folding>
-                <element signature="e#1702#1760#0" expanded="false" />
-                <element signature="e#1771#1818#0" expanded="false" />
+                <element signature="e#1701#1759#0" expanded="false" />
+                <element signature="e#1770#1817#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -68,20 +68,31 @@
       <file leaf-file-name="classifier_probScatter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/classifier_probScatter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2487">
-              <caret line="103" column="14" lean-forward="false" selection-start-line="103" selection-start-column="14" selection-end-line="103" selection-end-column="14" />
+            <state relative-caret-position="855">
+              <caret line="107" column="23" lean-forward="false" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classifier_confuMat.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/case/classifier_confuMat.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding>
-                <element signature="e#17#56#0" expanded="true" />
+                <element signature="e#1902#1960#0" expanded="false" />
+                <element signature="e#1971#2018#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classifier_alphaVarTest.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/case/classifier_alphaVarTest.py">
+      <file leaf-file-name="validation.py" pinned="false" current-in-tab="false">
+        <entry file="file://D:/Programs/Anaconda/Lib/site-packages/sklearn/utils/validation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2088">
-              <caret line="107" column="22" lean-forward="false" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
+            <state relative-caret-position="185">
+              <caret line="440" column="0" lean-forward="false" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -100,8 +111,8 @@
       <file leaf-file-name="classifier_minDfVarTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/case/classifier_minDfVarTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="83" column="63" lean-forward="true" selection-start-line="82" selection-start-column="8" selection-end-line="83" selection-end-column="63" />
+            <state relative-caret-position="312">
+              <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -147,6 +158,7 @@
     <setting file="file://$PROJECT_DIR$/case/classifier_minDfVarTest.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/email/test.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/case/classifier_alphaVarTest.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/case/classifier_confuMat.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/case/classifier_probScatter.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/email/bayes.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/case/classifier_modelComp.py" root0="SKIP_INSPECTION" />
@@ -171,15 +183,17 @@
         <option value="$PROJECT_DIR$/email/bayes.py" />
         <option value="$PROJECT_DIR$/email/test.py" />
         <option value="$PROJECT_DIR$/case/classifier_mindfVarTest.py" />
-        <option value="$PROJECT_DIR$/case/classifier_minDfVarTest.py" />
         <option value="$PROJECT_DIR$/case/classifier_alphaVarTest.py" />
         <option value="$PROJECT_DIR$/case/classifier.py" />
-        <option value="$PROJECT_DIR$/case/classifier_probScatter.py" />
+        <option value="$PROJECT_DIR$/case/classifier_minDfVarTest.py" />
+        <option value="$PROJECT_DIR$/case/classifier_ConfuMat.py" />
         <option value="$PROJECT_DIR$/case/classifier_modelComp.py" />
+        <option value="$PROJECT_DIR$/case/classifier_confuMat.py" />
+        <option value="$PROJECT_DIR$/case/classifier_probScatter.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="950" />
     <option name="width" value="980" />
     <option name="height" value="1030" />
@@ -215,7 +229,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -232,6 +245,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -261,25 +275,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.classifier_modelComp">
-    <configuration name="classifier" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="text_classifier" />
-      <option name="SCRIPT_NAME" value="D:\Project\Python\text_classifier\case\classifier_modelComp.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.classifier_minDfVarTest">
     <configuration name="classifier_alphaVarTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -298,7 +294,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="classifier_mindfVarTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="classifier_confuMat" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -310,7 +306,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="text_classifier" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/case/classifier_mindfVarTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/case/classifier_confuMat.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="classifier_minDfVarTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="text_classifier" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/case/classifier_minDfVarTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -353,19 +367,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.classifier" />
-      <item index="1" class="java.lang.String" itemvalue="Python.classifier_alphaVarTest" />
-      <item index="2" class="java.lang.String" itemvalue="Python.classifier_mindfVarTest" />
-      <item index="3" class="java.lang.String" itemvalue="Python.classifier_probScatter" />
-      <item index="4" class="java.lang.String" itemvalue="Python.classifier_modelComp" />
+      <item index="0" class="java.lang.String" itemvalue="Python.classifier_modelComp" />
+      <item index="1" class="java.lang.String" itemvalue="Python.classifier_confuMat" />
+      <item index="2" class="java.lang.String" itemvalue="Python.classifier_probScatter" />
+      <item index="3" class="java.lang.String" itemvalue="Python.classifier_alphaVarTest" />
+      <item index="4" class="java.lang.String" itemvalue="Python.classifier_minDfVarTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.classifier_modelComp" />
-        <item index="1" class="java.lang.String" itemvalue="Python.classifier_probScatter" />
-        <item index="2" class="java.lang.String" itemvalue="Python.classifier" />
-        <item index="3" class="java.lang.String" itemvalue="Python.classifier_alphaVarTest" />
-        <item index="4" class="java.lang.String" itemvalue="Python.classifier_mindfVarTest" />
+        <item index="0" class="java.lang.String" itemvalue="Python.classifier_minDfVarTest" />
+        <item index="1" class="java.lang.String" itemvalue="Python.classifier_alphaVarTest" />
+        <item index="2" class="java.lang.String" itemvalue="Python.classifier_modelComp" />
+        <item index="3" class="java.lang.String" itemvalue="Python.classifier_probScatter" />
+        <item index="4" class="java.lang.String" itemvalue="Python.classifier_confuMat" />
       </list>
     </recent_temporary>
   </component>
@@ -395,17 +409,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
+    <frame x="950" y="0" width="980" height="1030" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.098812096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25842696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22553699" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="R Packages" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="R Graphics" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3244552" sideWeight="0.5247191" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32338902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23269689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28400955" sideWeight="0.4752809" order="2" side_tool="false" content_ui="tabs" x="405" y="354" width="986" height="288" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53995156" sideWeight="0.4752809" order="2" side_tool="false" content_ui="tabs" x="405" y="354" width="986" height="288" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21002387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -493,8 +506,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pymc/main.py" />
-    <entry file="file://$PROJECT_DIR$/btc/收盘价折线图（￥）.svg" />
     <entry file="file://$PROJECT_DIR$/btc/btc_close_2017_urllib.json" />
     <entry file="file://$PROJECT_DIR$/btc/btc_close_2017.json" />
     <entry file="file://$PROJECT_DIR$/temperature/highs_lows.py" />
@@ -620,39 +631,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/classifier_minDfVarTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="83" column="63" lean-forward="true" selection-start-line="82" selection-start-column="8" selection-end-line="83" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/case/classifier_alphaVarTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2088">
+        <state relative-caret-position="2610">
           <caret line="107" column="22" lean-forward="false" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/case/classifier_minDfVarTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="114" column="56" lean-forward="false" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Programs/Anaconda/Lib/site-packages/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="440" column="0" lean-forward="false" selection-start-line="440" selection-start-column="0" selection-end-line="440" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/classifier_confuMat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <element signature="e#1902#1960#0" expanded="false" />
+            <element signature="e#1971#2018#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/case/classifier_probScatter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2487">
-          <caret line="103" column="14" lean-forward="false" selection-start-line="103" selection-start-column="14" selection-end-line="103" selection-end-column="14" />
-          <folding>
-            <element signature="e#17#56#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="855">
+          <caret line="107" column="23" lean-forward="false" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/case/classifier_modelComp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1153">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="-234">
+          <caret line="79" column="31" lean-forward="true" selection-start-line="79" selection-start-column="4" selection-end-line="79" selection-end-column="31" />
           <folding>
-            <element signature="e#1702#1760#0" expanded="false" />
-            <element signature="e#1771#1818#0" expanded="false" />
+            <element signature="e#1701#1759#0" expanded="false" />
+            <element signature="e#1770#1817#0" expanded="false" />
           </folding>
         </state>
       </provider>

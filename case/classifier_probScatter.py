@@ -102,7 +102,9 @@ for i in range(len(vecSum)):
                label='Type '+str(i+1),
                alpha=0.3)
     ax.legend()
-ax.set_title('Probability Distribution of Words\nin Different Categories')
-ax.set_xlabel('word\'s serial number in dictionary')
-ax.set_ylabel('probability P(w|c)*P(c)')
+ax.set_title('Probability Distribution of Words\nin Different Categories', fontsize=20)
+ax.set_xlabel('word\'s serial number in dictionary', fontsize=20)
+ax.set_ylabel('probability ( log[P(w|c)]*P(c) )', fontsize=20)
+ax.tick_params('both', size=15)
+plt.locator_params('y', nbins=15, scientific='True')
 plt.show()
